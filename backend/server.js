@@ -3,6 +3,7 @@ import color from "colors";
 import connectedDB from "./config/db.js";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
+import contactRoute from "./routes/contactRoutes.js";
 dotenv.config();
 
 connectedDB();
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
   res.send("Api is runnung...");
 });
 
+app.use("api/contacts", contactRoute);
 
 const PORT = process.env.PORT || 5000;
 
