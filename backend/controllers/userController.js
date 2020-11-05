@@ -25,7 +25,7 @@ const registerUser = asyncHandler(async (req, res) => {
     res.status(201).json({
       _id: user._id,
       email: user.email,
-      name: user.email,
+      name: user.name,
       token: generateToken(user._id),
     });
   } else {
@@ -34,4 +34,19 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
-export { registerUser };
+const authuser = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+  const user = User.findOne({ email });
+  if (user && user.matchPassword(password)) {
+    res.status(200).json({
+      _id: user._id,
+      email: user.email,
+      name: user.name,
+      token: generateToken(user._id),
+    });
+  } else {
+    res.status(400).json("invalid user credentials");
+  }
+});
+
+export { registerUser, authuser };
