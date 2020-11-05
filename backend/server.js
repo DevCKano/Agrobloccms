@@ -4,6 +4,7 @@ import connectedDB from "./config/db.js";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import contactRoute from "./routes/contactRoutes.js";
+import userRoutes from "./controllers/userController.js";
 dotenv.config();
 
 connectedDB();
@@ -17,6 +18,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("api/contacts", contactRoute);
+app.use("api/user", userRoutes);
 
 const PORT = process.env.PORT || 5000;
 
