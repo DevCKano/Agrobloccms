@@ -4,7 +4,7 @@ import connectedDB from "./config/db.js";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import contactRoute from "./routes/contactRoutes.js";
-import userRoutes from "./controllers/userController.js";
+import userRoutes from "./routes/userRoutes.js";
 dotenv.config();
 
 connectedDB();

@@ -1,5 +1,4 @@
 import asyncHandler from "express-async-handler";
-import { connect } from "mongoose";
 import Contact from "../models/contactModel.js";
 
 // @desc    create new Order

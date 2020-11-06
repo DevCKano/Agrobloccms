@@ -18,7 +18,7 @@ const contactSchema = mongoose.Schema({
   },
   Birthday: {
     type: Date,
-    required: ttrue,
+    required: true,
   },
   Reminder: [
     {
