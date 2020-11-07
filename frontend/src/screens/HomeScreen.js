@@ -1,10 +1,18 @@
 import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import Sidebar from "../components/Sidebar";
 
 const HomeScreen = () => {
   return (
-    <div>
-      <h3>Home Screen of Agrobloc CMS</h3>
-    </div>
+    <Container>
+      <Row>
+        <Col md={3}>
+          <Sidebar />
+        </Col>
+
+        <Col md={9}>List of Contacts</Col>
+      </Row>
+    </Container>
   );
 };
 

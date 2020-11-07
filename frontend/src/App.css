@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+
+.sidebar {
+  /*margin-top: 67px; */
+  /* margin-bottom: 30px; */
+  width: 200px;
+  background-color: #7b9c29;
+  height: 1000px;
+  margin-top: -17px;
+  margin-left: -115px;
+}
+
+.sidebar a {
+  display: block;
+  color: #ffffff;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: #8cb12e;
+  color: white;
+  width: 100%;
+}
+
+.sidebar a:hover:not(.active) {
+  color: white;
+}
