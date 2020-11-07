@@ -1,29 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import FormContainer from "../components/FormContainer";
 
-const RegisterScreen = () => {
+const RegisterScreen = ({ history }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  const HandleLogin = async (e) => {
+  const HandleRegister = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       setMessage("Password did not match");
     }
     try {
-      const { data } = await axios.post(
-        "http://127.0.0.1:8001/api/auth/register",
-        {
-          name,
-          email,
-          password,
-        }
-      );
+      const { data } = await axios.post("http://localhost:5000/api/users", {
+        name,
+        email,
+        password,
+      });
       console.log(data);
       //localStorage.setItem("userLogin", JSON.stringify(data));
       setMessage(data.message);
@@ -36,11 +34,11 @@ const RegisterScreen = () => {
   return (
     <FormContainer>
       <h2>Agbloc CMS Sign Up</h2>
-      <Form>
+      <Form onSubmit={HandleRegister}>
         <Form.Group controlId="email">
           <Form.Label>Name</Form.Label>
           <Form.Control
-            type="email"
+            type="text"
             placeholder="Enter Email"
             value={name}
             onChange={(e) => setName(e.target.value)}

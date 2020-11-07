@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import FormContainer from "../components/FormContainer";
 
-const LoginScreen = () => {
+const LoginScreen = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,7 +13,7 @@ const LoginScreen = () => {
 
     try {
       const { data } = await axios.post(
-        "http://127.0.0.1:8001/api/auth/AuthLogin",
+        "http://localhost:5000/api/users/login",
         {
           email,
           password,
@@ -20,7 +21,7 @@ const LoginScreen = () => {
       );
       console.log(data);
       localStorage.setItem("userLogin", JSON.stringify(data));
-      history.push("home");
+      history.push("/");
     } catch (error) {
       alert(error);
       console.log(error);
