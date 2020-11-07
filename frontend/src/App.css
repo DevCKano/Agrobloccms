@@ -63,3 +63,9 @@
 .sidebar a:hover:not(.active) {
   color: white;
 }
+
+.card-side {
+  border-radius: 5px;
+  border: #282c34 solid 2px;
+  margin-top: 5px;
+}
