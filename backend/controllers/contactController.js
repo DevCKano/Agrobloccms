@@ -10,19 +10,18 @@ const addContactDetail = asyncHandler(async (req, res) => {
   const {
     fullname,
     email,
-    phone_nuumber,
-    Anniversary,
-    Birthday,
-    Reminder,
+    phone_number,
+    anniversary,
+    birthday,
+    //Reminder,
   } = req.body;
 
   const contact = new Contact({
     fullname,
     email,
-    phone_nuumber,
-    Anniversary,
-    Birthday,
-    Reminder,
+    phone_number,
+    anniversary,
+    birthday,
   });
   const createContact = await contact.save();
   res.status(201).json(createContact);

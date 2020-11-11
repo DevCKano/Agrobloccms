@@ -13,24 +13,24 @@ const contactSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
-  Anniversary: {
+  anniversary: {
     type: String,
   },
-  Birthday: {
+  birthday: {
     type: Date,
     required: true,
   },
-  Reminder: [
-    {
-      DateTime: {
-        type: String,
-        required: true,
-      },
-      Note: {
-        type: String,
-      },
-    },
-  ],
+  //Reminder: [
+  //{
+  //DateTime: {
+  //type: String,
+  //required: true,
+  //},
+  //Note: {
+  // type: String,
+  //},
+  //},
+  //],
 });
 
 const Contact = mongoose.model("Contact", contactSchema);
